@@ -1,0 +1,7 @@
+<% if (objType === 'obj') { %>
+    <%= accessControl %> var <%= attrName %>: <%= subClassName %>
+<%} else if (objType === 'array') {%>
+    <%= accessControl %> var <%= attrName %>: [<%= subClassName %>]
+<%} else {%>
+    <%= accessControl %> var <%= attrName %>: <%= attrType %>
+<%}%>

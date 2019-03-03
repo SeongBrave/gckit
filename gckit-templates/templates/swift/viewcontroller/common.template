@@ -1,0 +1,63 @@
+//
+//  <%= fileName %>
+//  <%= project %>
+//
+//  Created by <%= organization %> on <%= createtime %>. All rights reserved.
+//
+
+import UIKit
+
+class <%= className %>: UIViewController {
+
+    // MARK: - 属性绑定
+    /****************************Storyboard UI设置区域****************************/
+    
+    
+    /*----------------------------   自定义属性区域    ----------------------------*/
+    
+    
+    /****************************Storyboard 绑定方法区域****************************/
+    
+    
+    /**************************** 以下是方法区域 ****************************/
+
+    // MARK: - 系统方法
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        setViewTheme()
+        bindToViewModel()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+}
+
+// MARK: - 扩展方法
+
+extension <%= className %> {
+    
+    /// 界面简单初始化
+    func setupUI() {
+        
+    }
+    
+    /**
+     app 主题 设置
+     */
+    func setViewTheme() {
+        
+    }
+    
+    /**
+     绑定到viewmodel 设置
+     */
+    func bindToViewModel() {
+        
+    }
+}

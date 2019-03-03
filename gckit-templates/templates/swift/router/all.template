@@ -1,0 +1,16 @@
+//
+//  <%= fileName %>
+//  <%= project %>
+//
+//  Created by <%= organization %> on <%= createtime %>. All rights reserved.
+//
+
+import Foundation
+import URLNavigator
+
+public struct <%= className %> {
+    
+    public static func initialize(navigator: NavigatorType) {
+      <%=registervc%> 
+    }
+}

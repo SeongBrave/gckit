@@ -1,0 +1,7 @@
+<% if (objType === 'obj') { %>
+        <%= attrName %> :<%= subClassName %>.fromJson(json["<%= attr %>"]),
+<%} else if (objType === 'array') {%>
+        <%= attrName %>: new List<<%= subClassName %>>.from(json["<%= attr %>"].map((x) => <%= subClassName %>.fromJson(x))),
+<%} else {%>
+        <%= attrName %> :json["<%= attr %>"],
+<%}%>

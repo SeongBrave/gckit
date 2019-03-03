@@ -1,0 +1,44 @@
+{
+  "name": "gckit",
+  "version": "0.0.1",
+  "description": "iOS文件生成工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "bin": {
+    "gckit": "./bin/gckit.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SeongBrave/gckit.git"
+  },
+  "keywords": [
+    "iOS"
+  ],
+  "dependencies": {
+    "chalk": "2.3.0",
+    "commander": "^2.19.0",
+    "fs-extra": "^7.0.0",
+    "glob": "^7.1.3",
+    "inquirer": "^6.2.0",
+    "lodash": "^4.17.11",
+    "lowdb": "^1.0.0",
+    "minimist": "^1.2.0",
+    "moment": "^2.22.2",
+    "node-glob": "^1.2.0",
+    "opn": "^5.4.0",
+    "ora": "^3.0.0",
+    "qrcode-terminal": "^0.12.0",
+    "readline": "^1.3.0",
+    "shelljs": "^0.8.2",
+    "string.prototype.padstart": "^3.0.0"
+  },
+  "author": "seongbrave",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^0.14.5"
+  }
+}

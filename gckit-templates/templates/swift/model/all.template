@@ -1,0 +1,23 @@
+//
+//  <%= fileName %>
+//  <%= project %>
+//
+//  Created by <%= organization %> on <%= createtime %>. All rights reserved.
+//
+
+import Foundation
+import SwiftyJSON
+import ModelProtocol
+
+class <%= className %>: ModelProtocol {
+
+   // MARK: Declaration for string constants to be used to decode and also serialize.
+<%= attrKey%>
+    // MARK: 属性
+<%= attr%>
+    // MARK: 实现MikerSwiftJSONAble 协议， 解析json数据
+    public required  init?(json: JSON) {
+<%= init%>
+    }
+
+}

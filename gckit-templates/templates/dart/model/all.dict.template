@@ -1,0 +1,7 @@
+<% if (objType === 'obj') { %>
+        "<%= attr %>" : <%= attrName %>.toJson(),
+<%} else if (objType === 'array') {%>
+        "<%= attr %>" : new List<dynamic>.from(<%= attrName %>.map((x) => x.toJson())),
+<%} else {%>
+        "<%= attr %>" : <%= attrName %>,
+<%}%>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CocoaPods 中的使用 | Gckit-CLI</title>
+    <meta name="description" content="代码生成工具">
+    <link rel="icon" href="/gckit/favicon.png">
+    
+    <link rel="preload" href="/gckit/assets/css/0.styles.782bbe82.css" as="style"><link rel="preload" href="/gckit/assets/js/app.9f22f953.js" as="script"><link rel="preload" href="/gckit/assets/js/7.50c22630.js" as="script"><link rel="prefetch" href="/gckit/assets/js/10.82dbe597.js"><link rel="prefetch" href="/gckit/assets/js/11.022297eb.js"><link rel="prefetch" href="/gckit/assets/js/12.41d70fdd.js"><link rel="prefetch" href="/gckit/assets/js/13.23dc5993.js"><link rel="prefetch" href="/gckit/assets/js/14.b6a780c4.js"><link rel="prefetch" href="/gckit/assets/js/2.4c7d351d.js"><link rel="prefetch" href="/gckit/assets/js/3.fb030b46.js"><link rel="prefetch" href="/gckit/assets/js/4.3369d02e.js"><link rel="prefetch" href="/gckit/assets/js/5.705a88f4.js"><link rel="prefetch" href="/gckit/assets/js/6.25ea6206.js"><link rel="prefetch" href="/gckit/assets/js/8.a3da28c3.js"><link rel="prefetch" href="/gckit/assets/js/9.f5d7515f.js">
+    <link rel="stylesheet" href="/gckit/assets/css/0.styles.782bbe82.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/gckit/" class="home-link router-link-active"><!----> <span class="site-name">Gckit-CLI</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/gckit/guide/" class="nav-link router-link-active">指南</a></div><div class="nav-item"><a href="/gckit/config/" class="nav-link">配置</a></div><div class="nav-item"><a href="/gckit/template/" class="nav-link">模板</a></div><div class="nav-item"><a href="/gckit/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="https://github.com/SeongBrave/gckit" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/gckit/guide/" class="nav-link router-link-active">指南</a></div><div class="nav-item"><a href="/gckit/config/" class="nav-link">配置</a></div><div class="nav-item"><a href="/gckit/template/" class="nav-link">模板</a></div><div class="nav-item"><a href="/gckit/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="https://github.com/SeongBrave/gckit" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading"><span>指南</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/gckit/guide/" class="sidebar-link">介绍</a></li><li><a href="/gckit/guide/getting-started.html" class="sidebar-link">快速上手</a></li><li><a href="/gckit/guide/basic-config.html" class="sidebar-link">基本配置</a></li><li><a href="/gckit/guide/generate.html" class="sidebar-link">文件生成</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>进阶</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/gckit/guide/advanced/gtype-config.html" class="sidebar-link">文件类型配置</a></li><li><a href="/gckit/guide/advanced/lang-config.html" class="sidebar-link">语言配置</a></li><li><a href="/gckit/guide/advanced/cocoapods.html" class="active sidebar-link">CocoaPods 中的使用</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="cocoapods-中的使用"><a href="#cocoapods-中的使用" aria-hidden="true" class="header-anchor">#</a> CocoaPods 中的使用</h1> <blockquote><p><code>CocoaPods</code>只适用对<code>iOS</code>项目模块化中的使用，生成其它语言时可以忽略。推荐与<code>CocoaPods</code>结合使用，默认提供的<code>一键生成</code>也是配合<code>CocoaPods</code>模块化中使用的，<strong>Gckit-CLI</strong>也是基于在<code>CocoaPods</code>模块化开发过程中重复创建文件而开发的，所以<strong>Gckit-CLI</strong>在<code>CocoaPods</code>模块化开发中特别适用。</p></blockquote> <p><code>CocoaPods</code>是为了实现模块复用，而<code>Gckit CLI</code>是为了减少无用的手工操作，通过结合二则之后，理想的情况就是：我们只需要关注具体的业务逻辑，再也不会有复制粘贴等无用的操作了 👏，极大的提高了开发效率。</p> <p>尽量避免手动复制代码，重复的代码即可以通过<code>CLI</code>去完成，而项目之间有重复的模块，则可以通过<code>CocoaPods</code>实现公用代码模块化进而实现代码的复用。不仅能提高开发效率，而且还能进一步降低低级 Bug 的出现。</p> <div class="warning custom-block"><p class="custom-block-title">注意</p> <p>系统默认提供了<code>一键生成</code>，配合<code>CocoaPods</code>使用，在执行完脚本:<code>gckit g product</code>之后，还需两步操作:</p> <ol><li>要修改下<code>.podspec</code>文件，增加依赖的第三方库:</li></ol> <div class="language- extra-class"><pre class="language-text"><code>  s.dependency 'UtilCore', '~&gt; 0.1.0'
+  s.dependency 'NetWorkCore', '~&gt; 0.1.0'
+  s.dependency 'EmptyDataView', '~&gt; 0.1.0'
+</code></pre></div><ol start="2"><li><p>修改对应的 Cell 文件，与<code>Storyboard</code>绑定</p> <div class="language-Swift extra-class"><pre class="language-swift"><code><span class="token keyword">class</span>  <span class="token class-name">Product_tCell</span><span class="token punctuation">:</span> <span class="token builtin">UITableViewCell</span> <span class="token punctuation">{</span>
+
+ <span class="token atrule">@IBOutlet</span> <span class="token keyword">weak</span> <span class="token keyword">var</span> text_lb<span class="token punctuation">:</span> <span class="token builtin">UILabel</span><span class="token operator">!</span>
+
+ <span class="token keyword">var</span> item<span class="token punctuation">:</span><span class="token builtin">Product_model</span><span class="token operator">?</span> <span class="token punctuation">{</span>
+     <span class="token keyword">didSet</span> <span class="token punctuation">{</span>
+
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">override</span> <span class="token keyword">func</span> <span class="token function">awakeFromNib</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>在执行完毕以上两部操作之后就可以成功运行了。网络请求、数据解析等操作都已经写好了。</p></li></ol></div> <p>目前情况下在执行完<code>一键生成</code>命令之后还需要用户手动或者<code>Storybard</code>绘制界面，然后绑定字段。</p></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/gckit/guide/advanced/lang-config.html" class="prev">
+          语言配置
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/gckit/assets/js/7.50c22630.js" defer></script><script src="/gckit/assets/js/app.9f22f953.js" defer></script>
+  </body>
+</html>

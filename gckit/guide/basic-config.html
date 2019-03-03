@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>基本配置 | Gckit-CLI</title>
+    <meta name="description" content="代码生成工具">
+    <link rel="icon" href="/gckit/favicon.png">
+    
+    <link rel="preload" href="/gckit/assets/css/0.styles.782bbe82.css" as="style"><link rel="preload" href="/gckit/assets/js/app.9f22f953.js" as="script"><link rel="preload" href="/gckit/assets/js/10.82dbe597.js" as="script"><link rel="prefetch" href="/gckit/assets/js/11.022297eb.js"><link rel="prefetch" href="/gckit/assets/js/12.41d70fdd.js"><link rel="prefetch" href="/gckit/assets/js/13.23dc5993.js"><link rel="prefetch" href="/gckit/assets/js/14.b6a780c4.js"><link rel="prefetch" href="/gckit/assets/js/2.4c7d351d.js"><link rel="prefetch" href="/gckit/assets/js/3.fb030b46.js"><link rel="prefetch" href="/gckit/assets/js/4.3369d02e.js"><link rel="prefetch" href="/gckit/assets/js/5.705a88f4.js"><link rel="prefetch" href="/gckit/assets/js/6.25ea6206.js"><link rel="prefetch" href="/gckit/assets/js/7.50c22630.js"><link rel="prefetch" href="/gckit/assets/js/8.a3da28c3.js"><link rel="prefetch" href="/gckit/assets/js/9.f5d7515f.js">
+    <link rel="stylesheet" href="/gckit/assets/css/0.styles.782bbe82.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/gckit/" class="home-link router-link-active"><!----> <span class="site-name">Gckit-CLI</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/gckit/guide/" class="nav-link router-link-active">指南</a></div><div class="nav-item"><a href="/gckit/config/" class="nav-link">配置</a></div><div class="nav-item"><a href="/gckit/template/" class="nav-link">模板</a></div><div class="nav-item"><a href="/gckit/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="https://github.com/SeongBrave/gckit" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/gckit/guide/" class="nav-link router-link-active">指南</a></div><div class="nav-item"><a href="/gckit/config/" class="nav-link">配置</a></div><div class="nav-item"><a href="/gckit/template/" class="nav-link">模板</a></div><div class="nav-item"><a href="/gckit/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="https://github.com/SeongBrave/gckit" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>指南</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/gckit/guide/" class="sidebar-link">介绍</a></li><li><a href="/gckit/guide/getting-started.html" class="sidebar-link">快速上手</a></li><li><a href="/gckit/guide/basic-config.html" class="active sidebar-link">基本配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/gckit/guide/basic-config.html#配置文件" class="sidebar-link">配置文件</a></li><li class="sidebar-sub-header"><a href="/gckit/guide/basic-config.html#默认配置文件" class="sidebar-link">默认配置文件</a></li><li class="sidebar-sub-header"><a href="/gckit/guide/basic-config.html#设置用户配置" class="sidebar-link">设置用户配置</a></li><li class="sidebar-sub-header"><a href="/gckit/guide/basic-config.html#查看配置的信息" class="sidebar-link">查看配置的信息</a></li></ul></li><li><a href="/gckit/guide/generate.html" class="sidebar-link">文件生成</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>进阶</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/gckit/guide/advanced/gtype-config.html" class="sidebar-link">文件类型配置</a></li><li><a href="/gckit/guide/advanced/lang-config.html" class="sidebar-link">语言配置</a></li><li><a href="/gckit/guide/advanced/cocoapods.html" class="sidebar-link">CocoaPods 中的使用</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="基本配置"><a href="#基本配置" aria-hidden="true" class="header-anchor">#</a> 基本配置</h1> <h2 id="配置文件"><a href="#配置文件" aria-hidden="true" class="header-anchor">#</a> 配置文件</h2> <p><code>.gckitconfig</code>为配置文件，如果用户自己配置了一次即会在用户目录下会生成一个<code>.gckit</code>文件夹中包含一个<code>.gckitconfig</code>的文件，当然系统也会默认提供一个配置文件，另外你也可以单独为某一个项目生成一个项目级别的配置文件</p> <p><code>Gckit CLI</code>提供了三种配置级别，分别为:<code>项目级别</code> <code>用户级别</code> <code>Gckit CLI默认</code></p> <div class="tip custom-block"><p class="custom-block-title">提示</p> <blockquote><p>配置文件的加载顺序为:<code>项目级别</code> -&gt; <code>用户级别</code> -&gt; <code>Gckit CLI默认</code></p></blockquote> <p>即:如果当前项目存在<code>配置文件</code>，则当前项目中使用<code>Gckit CLI</code>会依据当前项目的配置生成文件，<code>用户级别</code>的<code>配置文件</code>是不起作用的</p> <p><code>Gckit CLI默认</code>配置文件只有在没有配置过<code>项目级别</code> 和 <code>用户级别</code>配置文件时才会起作用</p></div> <p>配置文件显示目录级别，如果是<code>用户级别</code>的则会在系统的用户根目录存在以下目录，如果是<code>项目级别</code>的则会在当前项目的根目录下存在</p> <div class="language- extra-class"><pre class="language-text"><code>.
+├─ .gckit
+│  │
+│  └─ .gckitconfig
+</code></pre></div><h3 id="config-命令相关参数"><a href="#config-命令相关参数" aria-hidden="true" class="header-anchor">#</a> config 命令相关参数</h3> <p>执行 Shell 脚本查看帮助信息</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ gckit c --help
+</code></pre></div><p>然后显示下面信息</p> <div class="language- extra-class"><pre class="language-text"><code>Usage: config|c [options]
+
+基本参数配置
+
+Options:
+  -p, --project  本项目配置,当前文件夹下增加gckitconfig,默认是用户目录下
+  -f, --force    强制覆盖配置文件
+  -s, --show     查看对应配置文件
+  -g, --cgtype   自定义生成文件类型
+  -l, --clang    自定义生成语言
+  -h, --help     output usage information
+</code></pre></div><h2 id="默认配置文件"><a href="#默认配置文件" aria-hidden="true" class="header-anchor">#</a> 默认配置文件</h2> <blockquote><p>没有配置过，就会读取默认的配置文件</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;organization&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gckit&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;author&quot;</span><span class="token operator">:</span> <span class="token string">&quot;seongbrave&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;preset&quot;</span><span class="token operator">:</span> <span class="token string">&quot;all&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;list&quot;</span><span class="token operator">:</span> <span class="token string">&quot;tv&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;force&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;isDeep&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;tempJPath&quot;</span><span class="token operator">:</span> <span class="token string">&quot;tempJson&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;mainPath&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Main&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;gTypes&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;viewcontroller&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;viewmodel&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;model&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;cell&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;api&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;router&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;core&quot;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;viewcontroller&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ViewController&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;suffix&quot;</span><span class="token operator">:</span> <span class="token string">&quot;_vc&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;isProject&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;viewmodel&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ViewModel&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;suffix&quot;</span><span class="token operator">:</span> <span class="token string">&quot;_vm&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;isProject&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;model&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Model&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;suffix&quot;</span><span class="token operator">:</span> <span class="token string">&quot;_model&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;isProject&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;cell&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;View/Cell&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;suffix&quot;</span><span class="token operator">:</span> <span class="token string">&quot;_cell&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;isProject&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;api&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Api&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;suffix&quot;</span><span class="token operator">:</span> <span class="token string">&quot;_api&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;isProject&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;router&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Module&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;suffix&quot;</span><span class="token operator">:</span> <span class="token string">&quot;_router&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;isProject&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;lang&quot;</span><span class="token operator">:</span> <span class="token string">&quot;swift&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;prefix&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;cLangList&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;cGTypes&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;gType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;core&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Module&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;suffix&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Core&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;isProject&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="设置用户配置"><a href="#设置用户配置" aria-hidden="true" class="header-anchor">#</a> 设置用户配置</h2> <h3 id="设置用户配置-2"><a href="#设置用户配置-2" aria-hidden="true" class="header-anchor">#</a> 设置用户配置</h3> <p>执行 Shell 脚本进行用户配置</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ gckit c
+</code></pre></div><p>具体操作可以参考以下 GIF 动图演示</p> <img src="/gckit/icons/basic-config-001.gif" alt="002"> <div class="warning custom-block"><p class="custom-block-title">注意</p> <p>如果提示文件已存在的错误，则可以增加参数<code>-f</code>表示强制覆盖配置文件</p></div> <h3 id="设置项目级别的配置"><a href="#设置项目级别的配置" aria-hidden="true" class="header-anchor">#</a> 设置项目级别的配置</h3> <blockquote><p>与上面的命令差不多，增加参数<code>-p</code>即表示配置项目级别的配置</p></blockquote> <p>执行 Shell 脚本进行项目级别配置，其它操作与上面类似</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ gckit c -p
+</code></pre></div><h2 id="查看配置的信息"><a href="#查看配置的信息" aria-hidden="true" class="header-anchor">#</a> 查看配置的信息</h2> <blockquote><p>增加<code>-s</code>参数即可查看，如果包含<code>-p</code>参数则查看的是<code>项目级别</code>的配置，否则查看的是<code>用户级别</code>的配置信息</p></blockquote> <p>查看当前项目的配置信息</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ gckit c -p -s
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/gckit/guide/getting-started.html" class="prev">
+          快速上手
+        </a></span> <span class="next"><a href="/gckit/guide/generate.html">
+          文件生成
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/gckit/assets/js/10.82dbe597.js" defer></script><script src="/gckit/assets/js/app.9f22f953.js" defer></script>
+  </body>
+</html>

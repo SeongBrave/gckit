@@ -1,0 +1,13 @@
+//
+//  <%= fileName %>
+//  <%= project %>
+//
+//  Created by <%= organization %> on <%= createtime %>. All rights reserved.
+//
+
+
+@import UIKit;
+
+@interface <%= className %> : UIViewController
+
+@end

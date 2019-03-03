@@ -1,0 +1,91 @@
+//
+//  <%= fileName %>
+//  <%= project %>
+//
+//  Created by <%= organization %> on <%= createtime %>. All rights reserved.
+//
+
+import RxSwift
+import NetWorkCore
+import SwiftyJSON
+import UtilCore
+import Result
+
+class <%= className %> : BaseList_Vm {
+    /// 表示正在刷新中
+    let loading = ActivityIndicator()
+    /// 表示在下来刷新中
+    let pullLoading = ActivityIndicator()
+    /*
+     接收返回的数据
+     */
+    /// 返回首页数据
+    let <%= name%>Elements = Variable<[<%= modelName %>]>([])
+    /// 表示正在刷新中
+    let refreshing = Variable(false)
+    
+    init(input: (
+        firstLoadTriger: Observable<Void>,
+        refreshTriger: Observable<Void>,
+        loadMoreTriger: Observable<Void>
+        )) {
+        super.init()
+        /// 界面第一次初始化
+        let _ =  Observable.of(
+            input.firstLoadTriger,
+            reloadTrigger.withLatestFrom(input.firstLoadTriger))
+            .merge().map{ <%= apiName %>.<%= name%>s(page: 0, pageSize: 10)}.share(replay: 1)
+            .emeRequestApiForArray(<%= modelName %>.self,activityIndicator: loading)
+            .subscribe(onNext: {[unowned self] (result) in
+                switch result {
+                case .success(let data):
+                    self.hasNextPage.value = data.count == 10
+                    self.<%= name%>Elements.value = data
+                    self.page = 1
+                case .failure(let error):
+                    self.refresherror.onNext(error)
+                }
+            })
+            .disposed(by: disposeBag)
+        /// 下拉刷新事件源
+        input.refreshTriger
+            .map{ <%= apiName %>.<%= name%>s(page: 0, pageSize: 10)}
+            .emeRequestApiForArray(<%= modelName %>.self,activityIndicator: pullLoading)
+            .subscribe(onNext: {[unowned self] (result) in
+                switch result {
+                case .success(let data):
+                    /**
+                     *  如果返回的数据正好相同 则默认还有数据
+                     */
+                    self.hasNextPage.value = data.count == 10
+                    self.<%= name%>Elements.value = data
+                    self.page = 1
+                case .failure(let error):
+                    self.refresherror.onNext(error)
+                }
+            })
+            .disposed(by: disposeBag)
+
+        input.loadMoreTriger
+            .map{ <%= apiName %>.<%= name%>s(page: self.page, pageSize: 10)}
+            .emeRequestApiForArray(<%= modelName %>.self)
+            .subscribe(onNext: {[unowned self] (result) in
+                switch result {
+                case .success(let data):
+                    /**
+                     *  如果返回的数据正好相同 则默认还有数据
+                     */
+                    self.hasNextPage.value = data.count == 10
+                    self.<%= name%>Elements.value  = self.<%= name%>Elements.value + data
+                    /**
+                     *  需要修改page 页数
+                     */
+                    self.page = self.page +  1
+                    
+                case .failure(let error):
+                    self.error.onNext(error)
+                }
+            })
+            .disposed(by: disposeBag)
+    }   
+}

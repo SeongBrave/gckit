@@ -1,0 +1,23 @@
+<% if (objType === 'obj') { %>
+        _<%= _.lowerFirst(attrName) %> = [<%= subClassName %> alloc]initWithJSONDictionary:@"<%= attrKey %>"];
+<%} else if (objType === 'array') {%>
+  NSMutableArray *<%= _.lowerFirst(attrName) %>_arr = @[].mutableCopy;
+    for (NSDictionary *subItem  in dict[@"<%= attrKey %>"]) {
+      [<%= _.lowerFirst(attrName) %>_arr addObject:[[<%= subClassName %> alloc]initWithJSONDictionary:subItem]];
+    }
+     _<%= _.lowerFirst(attrName) %> = <%= _.lowerFirst(attrName) %>_arr;
+<%} else  if (objType === 'string') {%>
+  id <%= _.lowerFirst(attrName) %> = [dict objectForKey:@"<%= _.lowerFirst(attrName) %>"];
+    if (<%= _.lowerFirst(attrName) %> && ![<%= _.lowerFirst(attrName) %> isEqual:[NSNull null]]) {
+        _<%= _.lowerFirst(attrName) %> = <%= _.lowerFirst(attrName) %>;
+    } else {
+         _<%= _.lowerFirst(attrName) %> = @"";
+    }
+<%} else {%>
+  id <%= _.lowerFirst(attrName) %> = [dict objectForKey:@"<%= _.lowerFirst(attrName) %>"];
+    if (<%= _.lowerFirst(attrName) %> && ![<%= _.lowerFirst(attrName) %> isEqual:[NSNull null]]) {
+        _<%= _.lowerFirst(attrName) %> = [<%= _.lowerFirst(attrName) %> <%=  _.lowerFirst(attrType.replace('NS', '')) %>Value];
+    } else {
+        _<%= _.lowerFirst(attrName) %> = 0;
+    }
+<%}%>

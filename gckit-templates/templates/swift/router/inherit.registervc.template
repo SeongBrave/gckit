@@ -1,0 +1,5 @@
+  
+    navigator.register("<%= _.lowerCase(name) %>".formatScheme()) { url, values ,context in
+      let <%= _.lowerFirst(viewcontrollerName) %>:<%= viewcontrollerName %> = <%= coreName %>.storyboard.instantiateViewController()
+      return <%= _.lowerFirst(viewcontrollerName) %>
+    }

@@ -1,0 +1,49 @@
+//
+//  <%= fileName %>
+//  <%= project %>
+//
+//  Created by <%= organization %> on <%= createtime %>. All rights reserved.
+//
+
+import Foundation
+
+
+/// 本模块的名称， 本模块的storyboard 名称必须 与模块名称相同 ,静态资源的加载回用到
+let modularName = "<%= project %>"
+
+public  class  <%= className %> {
+    
+    public static var sharedInstance :  <%= className %> {
+        struct Static {
+            static let instance :  <%= className %> =  <%= className %>()
+        }
+        return Static.instance
+    }
+    
+    /// storyboard
+    public static var storyboard:UIStoryboard{
+        get{
+            return UIStoryboard(name: modularName, bundle:  <%= className %>.bundle)
+        }
+    }
+    ///供主App调用使用
+    public static var productVc:UIViewController{
+        get{
+            return  <%= className %>.storyboard.instantiateViewController(withIdentifier: "Product_Vc")
+        }
+    }
+    
+    ///供其他模块使用
+    public static var bundle:Bundle?{
+        get{
+            guard let bundleURL = Bundle(for: Product_Vc.self).url(forResource: modularName, withExtension: "bundle") else {
+                return nil
+            }
+            guard let bundle = Bundle(url: bundleURL) else {
+                return nil
+            }
+            return bundle
+        }
+    }
+}
+

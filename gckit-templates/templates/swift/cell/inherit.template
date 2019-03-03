@@ -1,0 +1,24 @@
+//
+//  <%= fileName %>
+//  <%= project %>
+//
+//  Created by <%= organization %> on <%= createtime %>. All rights reserved.
+//
+
+import UIKit
+import UtilCore
+
+class  <%= className %>: <%= superClassName %> {
+    
+    @IBOutlet weak var text_lb: UILabel!
+    
+    var item:<%= modelName %>? {
+        didSet {
+            
+        }
+    }
+
+    override func awakeFromNib() {
+        
+    }
+}

@@ -1,0 +1,26 @@
+//
+//  <%= fileName %>
+//  <%= project %>
+//
+//  Created by <%= organization %> on <%= createtime %>. All rights reserved.
+//
+
+#import "<%= className %>.h"
+
+@interface <%= className %> ()
+
+@end
+
+@implementation <%= className %>
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+
+
+- (void)updateViewByDataModel:(<%= modelName %> *)model {
+
+}
+
+@end

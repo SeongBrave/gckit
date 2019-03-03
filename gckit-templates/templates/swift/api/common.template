@@ -1,0 +1,59 @@
+//
+//  <%= fileName %>
+//  <%= project %>
+//
+//  Created by <%= organization %> on <%= createtime %>. All rights reserved.
+//
+
+import Foundation
+import UtilCore
+import Alamofire
+import ModelProtocol
+import NetWorkCore
+
+public enum <%= className %> {
+
+    ///列表
+    case <%= name %>s(page: Int, pageSize: Int)
+    //add
+    case add<%= name %>(param: [String: Any])
+     //update
+    case update<%= name %>(id: String)
+}
+
+extension <%= className %>: TargetType {
+    
+    //商品数据
+    public var path: String {
+        switch self {
+        case .<%= name %>s:
+            return "<%= name %>s"
+        case .add<%= name %>:
+            return "<%= name %>/add"
+        case .update<%= name %>:
+            return "<%= name %>/update"
+        }
+    }
+    
+    //设置请求方式 get post等
+    public var method: HTTPMethod {
+        switch self {
+        case .<%= name %>s:
+            return .get
+        default :
+            return .post
+        }
+    }
+
+    /// 设置请求参数
+    public var parameters: Parameters? {
+        switch self {
+        case let .<%= name %>s(page, pageSize):
+            return ["page": page, "pageSize": pageSize]
+        case let .add<%= name %>(param):
+            return param
+        case let .update<%= name %>(id):
+            return ["id": id]
+        }
+    }
+}

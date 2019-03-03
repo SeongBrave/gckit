@@ -1,0 +1,289 @@
+//
+//  <%= fileName %>
+//  <%= project %>
+//
+//  Created by <%= organization %> on <%= createtime %>. All rights reserved.
+//
+
+import RxSwift
+import UtilCore
+import EmptyDataView
+import MJRefresh
+
+class <%= className %>: <%=superClassName%> {
+    
+    /****************************Storyboard UI设置区域****************************/
+    <% if (list !== 'none') { %>
+    @IBOutlet weak var <%= attrListViewName %>: <%=listViewClass%>!
+    <%}%>
+    /*----------------------------   自定义属性区域    ----------------------------*/
+    <% if (list != 'none') { %>
+    // 顶部刷新
+    let header = MJRefreshGifHeader()
+    // 底部刷新
+    let footer = MJRefreshAutoNormalFooter()
+     <%}%>
+    /****************************Storyboard 绑定方法区域****************************/
+    var manageVm:<%= viewmodelName %>?
+     <% if (list != 'none') { %>
+    var <%= attrListName %> = [<%= modelName %>]() {
+        didSet {
+            self.<%= attrListViewName %>.reloadData()
+        }
+    }
+     <%}%>
+    /**************************** 以下是方法区域 ****************************/
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+
+    /**
+     界面基础设置
+     */
+    override func setupUI() {
+        <% if (list != 'none') { %>
+        // 下拉刷新
+        header.setRefreshingTarget(self, refreshingAction: #selector(<%= className %>.headerRefresh))
+        self.<%= attrListViewName %>.mj_header = header
+        // 上拉刷新
+        footer.setRefreshingTarget(self, refreshingAction: #selector(<%= className %>.footerRefresh))
+        self.<%= attrListViewName %>.mj_footer = footer
+        self.<%= attrListViewName %>.dzn_tv_emptyDataSource = self
+        self.<%= attrListViewName %>.dzn_tv_emptyDelegate = self
+        self.<%= attrListViewName %>.tableFooterView = UIView()
+        self.<%= attrListViewName %>.estimatedRowHeight = 100  //  随便设个不那么离谱的值
+        self.<%= attrListViewName %>.rowHeight = UITableView.automaticDimension
+        ///隐藏滑动条
+        self.<%= attrListViewName %>.showsVerticalScrollIndicator = false
+         <%}%>
+    }
+
+    /**
+     app 主题 设置
+     */
+    override func setViewTheme() {
+        
+    }
+
+    /**
+     绑定到viewmodel 设置
+     */
+    override func bindToViewModel() {
+
+        /**
+         *  初始化viewmodel
+         */
+         <% if (list != 'none') { %>
+        self.manageVm = <%= viewmodelName %>(
+            input: (
+                firstLoadTriger:Observable.just("").map{_ in},
+                refreshTriger:  rx.sentMessage(#selector(<%= className %>.headerRefresh)).map{_ in},
+                loadMoreTriger: rx.sentMessage(#selector(<%= className %>.footerRefresh)).map{_ in}
+        ))
+
+        self.manageVm?
+            .<%= name%>Elements
+            .asObservable()
+            .subscribe(onNext: {[unowned self] (list) in
+                self.errorPageView.isHidden = true
+                self.showEmptyView = true
+                self.<%= attrListName %> = list
+            })
+            .disposed(by: disposeBag)
+
+        /**
+         *  通过vm 的loding 显示 加载进度
+         */
+        self.manageVm?
+            .loading.asObservable()
+            .bind(to: self.view.rx_loading)
+            .disposed(by: disposeBag)
+
+        self.manageVm?
+            .pullLoading
+            .asObservable()
+            .subscribe(onNext: {[unowned self] (isLoading) in
+                if isLoading {
+                    self.<%= attrListViewName %>.mj_header.endRefreshing()
+                }
+            })
+            .disposed(by: disposeBag)
+
+        self.errorPageView
+            .reloadSubject
+            .bind(to: self.manageVm!.reloadTrigger)
+            .disposed(by: disposeBag)
+        /**
+         *  通过vm 的hasNextPage 配置数据是否加载完毕
+         */
+        self.manageVm?
+            .hasNextPage.asDriver()
+            .asObservable()
+            .subscribe(onNext: {[unowned self] (hasNextPage) in
+                if !hasNextPage {
+                    self.<%= attrListViewName %>.mj_footer.endRefreshing()
+                    self.footer.endRefreshingWithNoMoreData()
+                }else {
+                    /** 重置没有更多的数据（消除没有更多数据的状态） */
+                    self.footer.resetNoMoreData()
+                }
+            })
+            .disposed(by: disposeBag)
+            
+        //刷新界面错误处理
+        self.manageVm?
+            .refresherror
+            .asObserver()
+            .bind(to: self.rx_showerrorpage)
+            .disposed(by: disposeBag)
+
+        self.manageVm?
+            .error
+            .asObserver()
+            .bind(to: self.view.rx_error)
+            .disposed(by: disposeBag)
+
+        guard let manageVm = self.manageVm else {
+            return
+        }
+        Observable.of(manageVm.error, manageVm.refresherror)
+            .merge()
+            .subscribe(onNext: {[unowned self] (_) in
+                self.<%= name %>_<%= listExt %>v.mj_footer.endRefreshing()
+            }).disposed(by: disposeBag)
+        <%}%>
+    }
+}
+
+// MARK: - 自定义方法
+extension  <%= className %> {
+
+    // 顶部刷新
+    @objc func headerRefresh() {
+        
+    }
+    
+    @objc func footerRefresh() {
+        
+    }
+}
+<% if (list === 'tv') { %>
+// MARK: UITableViewDelegate
+extension  <%= className %>: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.<%= attrListName %>.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = self.<%= attrListName %>[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "<%= cellName %>", for: indexPath) as! <%= cellName %>
+        cell.item = item
+        return cell
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+}
+// MARK: UITableViewDelegate
+extension  <%= className %>: UITableViewDelegate {
+
+    /// 点击行事件
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 159
+    }
+}
+
+/// 空数据数据代理
+extension  <%= className %> :EmptyDataSource {
+
+    func verticalOffset(emptyView scrollView: UIScrollView) -> CGFloat {
+        return 0
+    }
+
+    func description(emptyView scrollView: UIScrollView) -> NSAttributedString? {
+        var attributes: [NSAttributedString.Key:Any] = [:]
+        attributes[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: 17)
+        attributes[NSAttributedString.Key.foregroundColor] = UIColor.red
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        attributes[NSAttributedString.Key.paragraphStyle] = paragraph
+        let attributedString =  NSMutableAttributedString(string: "商品列表数据为空啊", attributes: nil)
+        let range = (attributedString.string as NSString).range(of: "列表数据")
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0.6784313725, blue: 0.9450980392, alpha: 1)], range: range)
+        return attributedString
+    }
+}
+<%}  else if (list === 'cv'){%>
+// MARK: - UICollectionViewDataSource
+extension <%= className %> : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.<%= name %>List.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "<%= cellName %>", for: indexPath) as! <%= cellName %>
+        cell.item = self.<%= name %>List[indexPath.row]
+        return cell
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension <%= className %> : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension <%= className %> : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.size.width, height: 160)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+       return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return .zero
+    }
+}
+<%}%>

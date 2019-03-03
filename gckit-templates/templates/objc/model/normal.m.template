@@ -1,0 +1,59 @@
+#import "<%= className %>.h"
+
+@implementation <%= className %>
+
+#pragma mark 解析方法
+
++ (_Nullable instancetype)fromData:(NSData *)data error:(NSError *_Nullable *)error {
+    @try {
+        id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:error];
+        return *error ? nil : [<%= className %> fromJSONDictionary:json];
+    } @catch (NSException *exception) {
+        *error = [NSError errorWithDomain:@"JSONSerialization" code:-1 userInfo:@{ @"exception": exception }];
+        return nil;
+    }
+}
+
++ (_Nullable instancetype)fromJSON:(NSString *)json encoding:(NSStringEncoding)encoding error:(NSError *_Nullable *)error {
+    return [self fromData:[json dataUsingEncoding:encoding] error:error];
+}
+
+#pragma mark 具体解析
+
++ (instancetype)fromJSONDictionary:(NSDictionary *)dict {
+    return dict ? [[<%= className %> alloc] initWithJSONDictionary:dict] : nil;
+}
+
+- (instancetype)initWithJSONDictionary:(NSDictionary *)dict {
+    if (self = [super init]) {
+        <%= init%>
+    }
+    return self;
+}
+
+- (NSDictionary *)JSONDictionary {
+    NSMutableDictionary *dict = @{}.mutableCopy;
+<%= dict%>
+    return dict;
+}
+
+#pragma mark 输出转换
+
+- (NSData *_Nullable)toData:(NSError *_Nullable *)error {
+    @try {
+        id json = [self JSONDictionary];
+        NSData *data = [NSJSONSerialization dataWithJSONObject:json options:kNilOptions error:error];
+        return *error ? nil : data;
+    } @catch (NSException *exception) {
+        *error = [NSError errorWithDomain:@"JSONSerialization" code:-1 userInfo:@{ @"exception": exception }];
+        return nil;
+    }
+}
+
+- (NSString *_Nullable)toJSON:(NSStringEncoding)encoding error:(NSError *_Nullable *)error {
+    NSData *data = [self toData:error];
+    return [[NSString alloc] initWithData:data encoding:encoding];
+}
+
+@end
+

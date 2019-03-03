@@ -1,0 +1,14 @@
+<% if (objType === 'obj') { %>
+        <%= attrName %> = <%= subClassName %>(json: json[<%= attrKey %>])
+<%} else if (objType === 'array') {%>
+         <%= attrName %>  = []
+        if let items = json[<%= attrKey %>].array {
+            for item in items {<% if (isBaseDataType) { %>
+                 <%= attr %>.append(item.<%= _.lowerFirst(subClassName) %>Value)<%} else {%> 
+                if let <%= _.lowerFirst(subClassName) %> = <%= subClassName %>(json: item){
+                    <%= attr %>.append(<%= _.lowerFirst(subClassName) %>)}<%}%>
+            }
+        }
+<%} else {%>
+        <%= attrName %>  = json[<%= attrKey %>].<%= _.lowerFirst(attrType) %>Value
+<%}%>

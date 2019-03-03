@@ -1,0 +1,23 @@
+//
+//  <%= fileName %>
+//  <%= project %>
+//
+//  Created by <%= organization %> on <%= createtime %>. All rights reserved.
+//
+
+
+#import <Foundation/Foundation.h>
+<%= atClass%>
+//   NSError *error;
+//   <%= className %> *home = [<%= className %> fromJSON:json encoding:NSUTF8Encoding error:&error];
+@interface <%= className %> : NSObject
+
+<%= attrKey%>
++ (_Nullable instancetype)fromJSON:(NSString *)json encoding:(NSStringEncoding)encoding error:(NSError *_Nullable *)error;
++ (_Nullable instancetype)fromData:(NSData *)data error:(NSError *_Nullable *)error;
+- (NSString *_Nullable)toJSON:(NSStringEncoding)encoding error:(NSError *_Nullable *)error;
+- (NSData *_Nullable)toData:(NSError *_Nullable *)error;
+- (instancetype)initWithJSONDictionary:(NSDictionary *)dict;
+- (NSDictionary *)JSONDictionary;
+
+@end

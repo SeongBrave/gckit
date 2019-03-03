@@ -1,0 +1,7 @@
+<% if (objType === 'obj') { %>
+   <%= subClassName %> <%= attrName %>;
+<%} else if (objType === 'array') {%>
+   List<<%= subClassName %>> <%= attrName %>;
+<%} else {%>
+   <%= attrType %> <%= attrName %>;
+<%}%>

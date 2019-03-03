@@ -1,0 +1,31 @@
+// To parse this JSON data, do
+//
+//     final <%= _.lowerFirst(className) %> = <%= _.lowerFirst(className) %>FromJson(jsonString);
+
+import 'dart:convert';
+
+<%= className %> <%= _.lowerFirst(className) %>FromJson(String str) {
+    final jsonData = json.decode(str);
+    return <%= className %>.fromJson(jsonData);
+}
+
+String <%= _.lowerFirst(className) %>ToJson(<%= className %> data) {
+    final dyn = data.toJson();
+    return json.encode(dyn);
+}
+
+class <%= className %> {
+    <%= attr%>
+
+    <%= className %>({
+<%= attrKey%>
+    });
+
+    factory <%= className %>.fromJson(Map<String, dynamic> json) => new <%= className %>(
+        <%= init%>
+    );
+
+    Map<String, dynamic> toJson() => {
+        <%= dict%>
+    };
+}
