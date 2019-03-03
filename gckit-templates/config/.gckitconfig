@@ -68,5 +68,7 @@
       },
       "crossPlatform": true
     }
+  ],
+   "cGTypes": [
   ]
 }

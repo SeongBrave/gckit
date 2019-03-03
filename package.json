@@ -1,6 +1,6 @@
 {
   "name": "gckit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "iOS文件生成工具",
   "main": "index.js",
   "scripts": {
@@ -39,6 +39,6 @@
   "author": "seongbrave",
   "license": "ISC",
   "devDependencies": {
-    "vuepress": "^0.14.5"
+    "vuepress": "^0.14.10"
   }
 }
