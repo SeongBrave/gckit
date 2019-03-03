@@ -103,7 +103,6 @@ async function Generate(param, options) {
       list: rlist
     })
   }
-  console.log(conf);
   if (rgType) {
     let hc = conf.cGTypes.find((i) => i.gType === rgType)
     if (hc) {
