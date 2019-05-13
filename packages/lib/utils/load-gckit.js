@@ -82,8 +82,6 @@ exports.loadConf = async () => {
  */
 exports.loadFile = async (file = '.gckitconfig') => {
   let isConfig = file == '.gckitconfig'
-  const rFile = path.resolve(__dirname, '../../../gckit-templates', isConfig ? `config/${file}` : `templates/${file}`)
-  let rc = await fs.readFile(rFile, 'utf8');
   const hFile = path.resolve(homedir, '.gckit', isConfig ? file : `templates/${file}`)
   if (fs.existsSync(hFile)) {
     let hc = await fs.readFile(hFile, 'utf8');
@@ -94,7 +92,13 @@ exports.loadFile = async (file = '.gckitconfig') => {
     let pc = await fs.readFile(pFile, 'utf8');
     return pc
   }
-  return rc;
+  const rFile = path.resolve(__dirname, '../../../gckit-templates', isConfig ? `config/${file}` : `templates/${file}`)
+  const erc = await fs.pathExists(rc)
+  if (erc) {
+    let rc = await fs.readFile(rFile, 'utf8');
+    return rc;
+  }
+  return '';
 }
 
 /**

@@ -3,6 +3,12 @@
 const chalk = require('chalk')
 const program = require('commander')
 
+const packageJson = require('../package.json');
+
+program
+  .version(packageJson.version, '-v, --version');
+program.parse(process.argv);
+
 program
   .command('generate')
   .description('生成对应语言的文件')

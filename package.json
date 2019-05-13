@@ -1,6 +1,6 @@
 {
   "name": "gckit",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "iOS文件生成工具",
   "main": "index.js",
   "scripts": {
