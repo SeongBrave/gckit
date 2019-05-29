@@ -1,6 +1,7 @@
 const chalk = require('chalk')
 const readline = require('readline')
 const padStart = require('string.prototype.padstart')
+const figlet = require('figlet');
 
 const format = (label, msg) => {
   if (msg instanceof Object) {
@@ -52,4 +53,10 @@ exports.clearConsole = title => {
       console.log(title)
     }
   }
+}
+
+exports.showFigletTitle = (title = 'Gckit-CLI') => {
+  exports.clearConsole()
+  console.log(chalk.bold.blue(figlet.textSync(title)));
+  console.log('\n')
 }

@@ -1,22 +1,21 @@
 const {
-  logWithSpinner,
-  stopSpinner,
   log,
-  info,
   warn,
   error,
-  clearConsole,
-  chalk
+  showFigletTitle,
 } = require('../shared-utils/index.js')
 const fs = require('fs-extra')
 const path = require('path')
 const homedir = require('os').homedir()
+const packageJson = require('../../package.json');
 const {
   promptQuestion,
   customGeneratorType,
-  customLangList
+  customLangList,
+  promptIpa,
+  promptLinkMap,
+  promptLipo
 } = require('./utils/prompts')
-
 const {
   loadCGTypes,
   loadCLangList
@@ -29,13 +28,16 @@ async function Config(args) {
   let cg = args.cgtype || false;
   let cl = args.clang || false;
   let s = args.show || false;
+  let isipa = args.ipa || false;
+  let islp = args.linkmap || false;
+  let islipo = args.lipo || false;
   let root = p ? process.cwd() : homedir
+  //这边表示正好在homedir下进行配置,然后再设置p为false
   if (process.cwd() === homedir) {
     p = false
   }
   let gckitDir = path.resolve(root, '.gckit')
-  let title = chalk.bold.blue(`gckit v1.0.0`)
-  clearConsole(title)
+  showFigletTitle()
   //确保.gckit目录存在
   await fs.ensureDir(gckitDir)
   let file = path.resolve(gckitDir, '.gckitconfig')
@@ -56,7 +58,25 @@ async function Config(args) {
       obj = await fs.readJson(file)
     }
   }
-  if (cg) {
+  if (isipa) {
+    let ipaObj = await promptIpa()
+    Object.assign(obj, {
+      ipa: ipaObj
+    })
+    await fs.writeFile(file, JSON.stringify(obj, null, 2), 'utf-8')
+  } else if (islp) {
+    let lpOjb = await promptLinkMap()
+    Object.assign(obj, {
+      linkmap: lpOjb
+    })
+    await fs.writeFile(file, JSON.stringify(obj, null, 2), 'utf-8')
+  } else if (islipo) {
+    let lipoObj = await promptLipo()
+    Object.assign(obj, {
+      lipo: lipoObj
+    })
+    await fs.writeFile(file, JSON.stringify(obj, null, 2), 'utf-8')
+  } else if (cg) {
     let oc = []
     if (p) {
       //如果是项目配置 则不能再配置已经存在的用户维度自定义的配置

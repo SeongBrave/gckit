@@ -70,5 +70,14 @@
     }
   ],
    "cGTypes": [
-  ]
+  ],
+   "lipoObj": {
+    "output": "${project}/Products"
+  },
+  "ipa": {
+    "output": "build/ipa"
+  },
+  "linkmap": {
+    "output": "build/linkmap"
+  }
 }

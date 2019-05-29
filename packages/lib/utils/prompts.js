@@ -256,3 +256,64 @@ exports.inputPreset = async (args) => {
   }])
   return preset
 }
+//ipa配置
+exports.promptIpa = async (args) => {
+  let ipaObj = await inquirer.prompt([{
+    type: 'input',
+    name: 'output',
+    default: 'tmp/ipa',
+    message: `ipa导出文件路径`
+  }, {
+    type: 'input',
+    name: 'bundleId',
+    default: '',
+    message: `配置默认的bundleId`
+  }])
+  return ipaObj
+}
+//linkmap配置
+exports.promptLinkMap = async (args) => {
+  let linkmapObj = await inquirer.prompt([{
+    type: 'input',
+    name: 'output',
+    default: 'tmp/linkmap',
+    message: `linkmap导出文件路径`
+  }])
+  return linkmapObj
+}
+//静态库合并配置配置
+exports.promptLipo = async (args) => {
+  let lipoOjb = await inquirer.prompt([{
+    type: 'input',
+    name: 'output',
+    default: '${project}/Products',
+    message: `lipo导出文件路径`
+  }])
+  return lipoOjb
+}
+exports.promptChannel = async (args) => {
+  let lipoOjb = await inquirer.prompt([{
+    type: 'list',
+    name: 'channel',
+    default: 'development',
+    choices: [{
+        name: "内部发布(development)",
+        value: "development"
+      },
+      {
+        name: "企业发布(enterprise)",
+        value: "enterprise"
+      },
+      {
+        name: "企业内部发布(ad-hoc)",
+        value: "ad-hoc"
+      },
+      {
+        name: "商店发布(app-store)",
+        value: "app-store"
+      }
+    ],
+    message: `选择发布渠道`
+  }])
+  return lipoOjb
+}

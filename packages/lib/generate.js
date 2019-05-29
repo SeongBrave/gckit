@@ -1,10 +1,5 @@
 const {
-  logWithSpinner,
   stopSpinner,
-  log,
-  info,
-  warn,
-  chalk,
   error,
   isPod,
   getProjectName
