@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "postinstall": "opencollective-postinstall || true"
   },
   "bin": {
     "gckit": "./bin/gckit.js"
@@ -31,6 +32,7 @@
     "moment": "^2.22.2",
     "node-filter-async": "^1.1.2",
     "node-glob": "^1.2.0",
+    "opencollective-postinstall": "^2.0.2",
     "opn": "^5.4.0",
     "ora": "^3.0.0",
     "qrcode-terminal": "^0.12.0",
@@ -43,5 +45,9 @@
   "license": "ISC",
   "devDependencies": {
     "vuepress": "^0.14.10"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/gckit"
   }
 }
