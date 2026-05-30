@@ -163,7 +163,7 @@ exports.isLibraryByTarget = async function (projectFile, target) {
     }
   } = pojectObj
   let targets = re_Project.targets.filter(item => item.coment === target)
-  targets.forEach(rt => {
+  for (const rt of targets) {
     const {
       buildConfigurationList
     } = objects.PBXNativeTarget[rt.value]
@@ -181,10 +181,8 @@ exports.isLibraryByTarget = async function (projectFile, target) {
     //这块是区别判断library与project的主要逻辑
     if (buildSettings && buildSettings['OTHER_LDFLAGS']) {
       return true
-    } else {
-      continue
     }
-  });
+  }
   return false
 
 }
