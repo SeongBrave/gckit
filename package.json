@@ -16,8 +16,16 @@
     "type": "git",
     "url": "https://github.com/SeongBrave/gckit.git"
   },
+  "homepage": "https://seongbrave.github.io/gckit/",
+  "bugs": {
+    "url": "https://github.com/SeongBrave/gckit/issues"
+  },
   "keywords": [
-    "iOS"
+    "iOS",
+    "Swift",
+    "Objective-C",
+    "CLI",
+    "code-generator"
   ],
   "dependencies": {
     "chalk": "2.3.0",

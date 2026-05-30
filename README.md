@@ -2,7 +2,22 @@
 
 <div align=center><img width="150" height="150" src="./docs/img/logo.png"/></div>
 
+[![npm version](https://img.shields.io/npm/v/gckit.svg)](https://www.npmjs.com/package/gckit)
+[![Test](https://github.com/SeongBrave/gckit/actions/workflows/test.yml/badge.svg)](https://github.com/SeongBrave/gckit/actions/workflows/test.yml)
+[![license](https://img.shields.io/github/license/SeongBrave/gckit.svg)](./LICENSE)
+
 **Gckit-CLI**代码生成的命令行工具，主要针对`iOS`(当然也支持自定义，比如`Dart`、`Java`)开发过程中`Swift`或者`Objective-C`语法的文件生成，可以通过一个简单的`JSON`文件即可生成对应的`ViewController`、`Model`、`Cell`等文件，生成的文件类型、文件路径都可以自定义。`一键生成`最大的提高了开发效率，再也不用`复制`、`粘贴`操作了，开发者只需关注业务代码的开发和 UI 界面的绘制。
+
+## 项目状态
+
+这个项目正在恢复维护中。当前优先目标是保证已有 CLI 能在现代 Node.js 环境下稳定运行，并逐步补充自动化测试、文档和兼容性修复。
+
+已验证的基础命令：
+
+```bash
+$ gckit --help
+$ gckit g product vc
+```
 
 ## 安装
 
@@ -12,7 +27,7 @@
 $ brew install node
 ```
 
-> 更多安装方式可以参考[Node.js 官方息息](https://nodejs.org/en/download/)
+> 更多安装方式可以参考[Node.js 官方信息](https://nodejs.org/en/download/)
 
 安装完成后，可以使用以下命令检测是否安装成功：
 
@@ -34,6 +49,15 @@ $ npm install gckit -g
 ```bash
 $ gckit --help
 ```
+
+## 开发
+
+```bash
+$ npm install
+$ npm test
+```
+
+`npm test` 会运行 CLI 冒烟测试，覆盖帮助命令和默认 Swift ViewController 模板生成流程。
 
 ## 使用
 
